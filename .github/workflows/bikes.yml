@@ -80,5 +80,4 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           host: ${{ secrets.HOST }}
-          branch-name: ${{steps.generate-valid-branch-name.outputs.result}}
           protocol: "http"
