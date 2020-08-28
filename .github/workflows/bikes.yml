@@ -57,6 +57,7 @@ jobs:
           overrides: |
             image.repository:${{ secrets.CONTAINER_REGISTRY }}/bikes
             image.tag:${{ github.sha }}
+            fullnameOverride: ${{steps.generate-release-name.outputs.result}}
       id: bake
 
     # Deploy app to AKS
