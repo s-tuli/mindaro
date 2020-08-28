@@ -24,7 +24,7 @@ jobs:
         docker push ${{ secrets.CONTAINER_REGISTRY }}/bikes:$GITHUB_SHA
     - uses: azure/aks-set-context@v1
       with:
-        creds: "${{ secrets.AZURE_CREDENTIALS }}"
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
         cluster-name: ${{ secrets.CLUSTER_NAME }}
         resource-group: ${{ secrets.RESOURCE_GROUP }}
 
@@ -51,8 +51,8 @@ jobs:
           echo ::set-output name=result::$release
     - uses: azure/k8s-bake@v1
       with:
-          renderEngine: "helm2"
-          helmChart: "./samples/BikeSharingApp/Bikes/charts/bikes/"
+          renderEngine: 'helm2'
+          helmChart: './samples/BikeSharingApp/Bikes/charts/bikes/'
           releaseName: ${{steps.generate-release-name.outputs.result}}
           overrides: |
             image.repository:${{ secrets.CONTAINER_REGISTRY }}/bikes
@@ -78,4 +78,4 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         host: ${{ secrets.HOST }}
         branch-name: ${{steps.generate-valid-branch-name.outputs.result}}
-        protocol: "http"
+        protocol: 'http'
