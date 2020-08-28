@@ -8,8 +8,8 @@ on:
       - samples/BikeSharingApp/Bikes/**
 env:
   # azure
-  resourceGroup: myResourceGroup
-  nameSpace: dev
+  # resourceGroup: myResourceGroup
+  nameSpace: "${{ secrets.MASTER_SPACE }}"
 
 jobs:
   build:
