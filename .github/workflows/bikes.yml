@@ -76,9 +76,8 @@ jobs:
         run: |
           kubectl label pods --selector="app=bikes,release=${{steps.generate-valid-branch-name.outputs.result}}" routing.visualstudio.io/route-from=${{steps.generate-valid-branch-name.outputs.result}}-bikes -n ${{ env.nameSpace }} --overwrite=true
           kubectl annotate pods --selector="app=bikes,release=${{steps.generate-valid-branch-name.outputs.result}}" routing.visualstudio.io/route-on-header=kubernetes-route-as=${{steps.generate-valid-branch-name.outputs.result}} -n ${{ env.nameSpace }} --overwrite=true
-      - uses: microsoft/mindaro/actions/add-review-url@Releases/v2
+      - uses: microsoft/mindaro/actions/add-review-url@s-tuli/add-review-url_update
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           host: ${{ secrets.HOST }}
-          branch-name: ${{steps.generate-valid-branch-name.outputs.result}}
           protocol: "http"
